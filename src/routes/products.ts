@@ -2,7 +2,6 @@ import { FastifyInstance } from 'fastify';
 import { products } from '../database/memoryDb';
 import { Product, ProductInput, ProductInputSchema, ProductSchema } from '../types/product';
 import { randomUUID } from 'crypto';
-import { request } from 'http';
 
 export async function productRoutes(fastify: FastifyInstance) {
     fastify.get('/api.products', async () => products);
