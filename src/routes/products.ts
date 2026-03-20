@@ -12,11 +12,12 @@ export async function productRoutes(fastify: FastifyInstance) {
     
     fastify.get('/api/products/:id', async (request, reply) => {
         const { id } = request.params as { id: string };
-        try {
-            z.string().uuid().parse(id);
-        } catch {
-            return reply.status(400).send({ message: 'Invalid UUID' });
-        }
+        const uuidSchema = z.string().uuid();
+    const validation = uuidSchema.safeParse(id);
+    
+    if (!validation.success) {
+        return reply.status(400).send({ message: 'Invalid UUID' });
+    }
 
         const products = await readProducts();
         const product = products.find((p) => p.id === id);
