@@ -30,17 +30,24 @@ A simple and scalable RESTful API for a Product Catalog built with **Fastify**, 
 
 4. 🏃 **Running the Application**
    _Development Mode_
-   Runs the server with hot-reload (using tsx or nodemon):Bash **npm run start:dev**
+   
+   Runs the server with hot-reload (using tsx or nodemon):
+   Bash **npm run start:dev**
+   
    _Production Mode_
+   
    Builds the TypeScript code and runs the bundled application:
    Bash **npm run start:prod**
+   
    _Multi-instance Mode (Horizontal Scaling)_
+   
    Starts a load balancer on PORT and worker instances on PORT + n (using all available CPU cores minus one):
    Bash **npm run start:multi**
-5. 🧪 **Testing**
+   
+6. 🧪 **Testing**
    To run the API test scenarios:
    Bash **npm test**
-6. 📨 **API Endpoints**
+7. 📨 **API Endpoints**
    Method,Endpoint,Description,Expected Status
    - GET /api/products - Fetch all products,200
    - GET /api/products/{id} - Fetch a specific product by UUID,- 200 / 400 / 404
@@ -48,7 +55,7 @@ A simple and scalable RESTful API for a Product Catalog built with **Fastify**, 
    - PUT /api/products/{id} - Update an existing product,200 / - 400 / 404
    - DELETE /api/products/{id} - Remove a product from the catalog,204 / 400 / 404
 
-7. **Product Data Structure**
+8. **Product Data Structure**
    {
    "id": "uuid-string",
    "name": "string",
@@ -58,7 +65,7 @@ A simple and scalable RESTful API for a Product Catalog built with **Fastify**, 
    "inStock": "boolean"
    }
 
-8. 📂 **Project Structure**
+9. 📂 **Project Structure**
    src/server.ts - Application entry point & error handling.
    src/cluster.ts - Cluster management & Load balancer.
    src/routes/ - API route definitions.
@@ -66,7 +73,7 @@ A simple and scalable RESTful API for a Product Catalog built with **Fastify**, 
    src/types/ - Zod schemas and TypeScript interfaces.
    db.json - Local database storage (created automatically).
 
-9. ⚡ **Environment Variables** (.env.example)
+10. ⚡ **Environment Variables** (.env.example)
    PORT=4000
 
 - PORT – the port number on which the server will run
