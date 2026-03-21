@@ -2,10 +2,10 @@ import { z } from 'zod';
 
 export const ProductSchema = z.object({
     id: z.string().uuid(),
-    name: z.string(),
-    description: z.string(),
+    name: z.string().min(1),
+    description: z.string().min(1),
     price: z.number().positive(),
-    category: z.string(),
+    category: z.string().min(1),
     inStock: z.boolean(),
 });
 

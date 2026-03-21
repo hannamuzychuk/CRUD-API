@@ -14,27 +14,32 @@ app.setNotFoundHandler((_request, reply) => {
 });
 
 app.setErrorHandler((error: unknown, _request, reply) => {
-
   const err = error as any;
+
+  if (err.name === 'ZodError') {
+    return reply.status(400).send({
+      message: err.issues?.map((i: any) => i.message) || 'Validation error'
+    });
+  }
+
   const statusCode = err.statusCode || 500;
-  const message = err.message || 'Internal Server Error';
 
   if (statusCode < 500) {
-
-    return reply.status(statusCode).send({ message });
+    return reply.status(statusCode).send({ message: err.message });
   }
 
   app.log.error(error);
-  return reply.status(500).send({ 
-    message: 'Internal Server Error' 
-  });
+  return reply.status(500).send({ message: 'Internal Server Error' });
 });
 
-app.listen({ port: PORT, host: '0.0.0.0' })
-  .then(() => {
+const start = async () => {
+  try {
+    await app.listen({ port: PORT, host: '0.0.0.0' });
     app.log.info(`Server running on port ${PORT}`);
-  })
-  .catch((err) => {
+  } catch (err) {
     app.log.error(err);
     process.exit(1);
-  });
+  }
+};
+
+start();

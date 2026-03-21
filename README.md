@@ -14,6 +14,11 @@ A simple and scalable RESTful API for a Product Catalog built with **Fastify**, 
 
 ---
 
+🛠️ Requirements
+
+- Node.js v24.x.x (recommended 24.10.0 or higher)
+- npm
+
 ## 🛠️ Installation
 
 1. Clone the repository.
@@ -22,6 +27,7 @@ A simple and scalable RESTful API for a Product Catalog built with **Fastify**, 
    npm install
    ```
 3. Create a .env file based on **.env.example:Bashcp .env**. example .env
+
 4. 🏃 **Running the Application**
    _Development Mode_
    Runs the server with hot-reload (using tsx or nodemon):Bash **npm run start:dev**
@@ -36,11 +42,11 @@ A simple and scalable RESTful API for a Product Catalog built with **Fastify**, 
    Bash **npm test**
 6. 📨 **API Endpoints**
    Method,Endpoint,Description,Expected Status
-   GET,/products,Fetch all products,200
-   GET,/products/{id},Fetch a specific product by UUID,200 / 400 / 404
-   POST,/products,Create a new product,201 / 400
-   PUT,/products/{id},Update an existing product,200 / 400 / 404
-   DELETE,/products/{id},Remove a product from the catalog,204 / 400 / 404
+   - GET /api/products - Fetch all products,200
+   - GET /api/products/{id} - Fetch a specific product by UUID,- 200 / 400 / 404
+   - POST /api/products - Create a new product,201 / 400
+   - PUT /api/products/{id} - Update an existing product,200 / - 400 / 404
+   - DELETE /api/products/{id} - Remove a product from the catalog,204 / 400 / 404
 
 7. **Product Data Structure**
    {
@@ -59,3 +65,9 @@ A simple and scalable RESTful API for a Product Catalog built with **Fastify**, 
    src/database/ - JSON file persistence logic.
    src/types/ - Zod schemas and TypeScript interfaces.
    db.json - Local database storage (created automatically).
+
+9. ⚡ **Environment Variables** (.env.example)
+   PORT=4000
+
+- PORT – the port number on which the server will run
+- .env should not be committed, only .env.example
