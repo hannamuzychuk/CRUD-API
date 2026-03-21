@@ -29,6 +29,7 @@ A simple and scalable RESTful API for a Product Catalog built with **Fastify**, 
 3. Create a .env file based on **.env.example:Bashcp .env**. example .env
 
 4. 🏃 **Running the Application**
+   
    _Development Mode_
    
    Runs the server with hot-reload (using tsx or nodemon):
@@ -44,10 +45,10 @@ A simple and scalable RESTful API for a Product Catalog built with **Fastify**, 
    Starts a load balancer on PORT and worker instances on PORT + n (using all available CPU cores minus one):
    Bash **npm run start:multi**
    
-6. 🧪 **Testing**
+5. 🧪 **Testing**
    To run the API test scenarios:
    Bash **npm test**
-7. 📨 **API Endpoints**
+6. 📨 **API Endpoints**
    Method,Endpoint,Description,Expected Status
    - GET /api/products - Fetch all products,200
    - GET /api/products/{id} - Fetch a specific product by UUID,- 200 / 400 / 404
@@ -55,7 +56,7 @@ A simple and scalable RESTful API for a Product Catalog built with **Fastify**, 
    - PUT /api/products/{id} - Update an existing product,200 / - 400 / 404
    - DELETE /api/products/{id} - Remove a product from the catalog,204 / 400 / 404
 
-8. **Product Data Structure**
+7. **Product Data Structure**
    {
    "id": "uuid-string",
    "name": "string",
@@ -65,7 +66,7 @@ A simple and scalable RESTful API for a Product Catalog built with **Fastify**, 
    "inStock": "boolean"
    }
 
-9. 📂 **Project Structure**
+8. 📂 **Project Structure**
    src/server.ts - Application entry point & error handling.
    src/cluster.ts - Cluster management & Load balancer.
    src/routes/ - API route definitions.
@@ -73,7 +74,7 @@ A simple and scalable RESTful API for a Product Catalog built with **Fastify**, 
    src/types/ - Zod schemas and TypeScript interfaces.
    db.json - Local database storage (created automatically).
 
-10. ⚡ **Environment Variables** (.env.example)
+9. ⚡ **Environment Variables** (.env.example)
    PORT=4000
 
 - PORT – the port number on which the server will run
